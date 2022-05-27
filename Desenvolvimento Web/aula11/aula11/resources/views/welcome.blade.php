@@ -2,30 +2,30 @@
 @section('titulo', 'Gian Eventos')
     
 @section('content')
-         <h1>Algum titulo</h1>
-         <img src="/img/eventos2.jpg" alt="eventos">
-         @if(10> 5)
-            <p>A condição é true</p>
-        @endif
-        <p>{{ $nome }} e {{ $idade }} anos!!!.</p>
-        @if($nome=="Pedro")
-        <p>O nome é Pedro</p>
-        @else
-        <p>O nome não é Pedro</p>
-        @endif
 
-        @for($i = 0; $i < count($arr); $i++)
-            <p>{{$arr[$i]}}</p>
-            @endfor
-
-        @php
-            $name = "Gian";
-            echo $name
-        @endphp
-        {{--esse é o comentario do blade--}}
-        @foreach ($nomes as $nome)
-        <p>{{ $loop->index}}</p>
-        <p>{{ $nome}}</p>
-            
+<div id="search-container" class="col-md-12">
+    <h1>Busque um evento</h1>
+    <form action="">
+        <input type="text" id="search" name="search" class="form-control" placeholder="Procurar">
+    </form>
+</div>
+<div id="events-container" class="col-md12">
+    <h2>Proximos Eventos</h2>
+    <p>Veja os eventos dos proximos dias</p>
+    <div id="card-container" class="row">
+        @foreach ($events as $event)
+            <div class="card col-md3">
+                <img src="" alt="">
+                <div class="card-body">
+                    
+                        <p class="card-date">21/05/2022</p>
+                        <h5 class="card-title">{{ $event->title}} </h5>
+                        <p class="card-participants">X Participantes</p>
+                        <a href="#" class="btn btn-primary">Saber Mais</a>
+                
+                </div>
+            </div>
         @endforeach
+    </div>
+</div> 
 @endsection
